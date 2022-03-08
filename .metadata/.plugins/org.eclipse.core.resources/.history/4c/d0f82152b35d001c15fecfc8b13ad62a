@@ -1,0 +1,58 @@
+	package com.learnkafka.controller;
+
+import static org.mockito.Mockito.doNothing;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learnkafka.domain.Book;
+import com.learnkafka.domain.LibraryEvent;
+import com.learnkafka.producer.LibraryEventProducer;
+
+@WebMvcTest(LibraryEventsController.class)
+@AutoConfigureMockMvc
+public class LibraryEventControllerUnitTest {
+	
+	@Autowired
+	MockMvc mockMvc;
+	
+	@MockBean
+	LibraryEventProducer libraryEventProducer;
+	
+	ObjectMapper objectMapper = new ObjectMapper();
+	
+	@Test
+	public void postLibraryEvent() throws Exception {
+		
+		//given
+		Book book  = Book.builder()
+					.bookId(123)
+					.bookAuthor("Sasmita")
+					.bookName("SpringBoot with Kafka")
+					.build();
+		LibraryEvent libraryEvent  = LibraryEvent.builder()
+									.libraryEventId(null)
+									.book(book)
+									.build();
+		String json = objectMapper.writeValueAsString(libraryEvent);
+		doNothing().when(libraryEventProducer).sendLibraryEvent_Approach2(libraryEvent);
+		
+		RequestBuilder request = MockMvcRequestBuilders.post("/v1/libraryevent").content(json).contentType(MediaType.APPLICATION_JSON);
+		
+		mockMvc.perform(request).andExpect(status().isCreated()).andExpect(content().json("{libraryEventId:null,libraryEventType:NEW,book:{bookId:111,bookName:SpringbootwithKafka,bookAuthor:Sasmita}}"));
+				
+	}
+		
+
+}

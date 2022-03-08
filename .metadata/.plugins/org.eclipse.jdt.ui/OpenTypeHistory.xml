@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=library-events-producer/C:\/Users\/INE12362133\/.m2\/repository\/org\/springframework\/boot\/spring-boot-autoconfigure\/2.5.4\/spring-boot-autoconfigure-2.5.4.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.boot=/=/maven.artifactId=/spring-boot-autoconfigure=/=/maven.version=/2.5.4=/=/maven.scope=/compile=/&lt;org.springframework.boot.autoconfigure.kafka(KafkaAutoConfiguration.class[KafkaAutoConfiguration" modifiers="33" timestamp="1630424145442"/>
+    <typeInfo handle="=library-events-consumer/C:\/Users\/INE12362133\/.m2\/repository\/org\/springframework\/boot\/spring-boot-autoconfigure\/2.5.4\/spring-boot-autoconfigure-2.5.4.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.boot=/=/maven.artifactId=/spring-boot-autoconfigure=/=/maven.version=/2.5.4=/=/maven.scope=/compile=/&lt;org.springframework.boot.autoconfigure.kafka(KafkaAnnotationDrivenConfiguration.class[KafkaAnnotationDrivenConfiguration" modifiers="32" timestamp="1630424145442"/>
+</typeInfoHistroy>

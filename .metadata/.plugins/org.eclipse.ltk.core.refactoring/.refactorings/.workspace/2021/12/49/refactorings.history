@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 0 packages to &apos;library-events-producer/src/test/java/com.learnkafka.libraryeventsproducer&apos;&#x0D;&#x0A;- Destination element: &apos;library-events-producer/src/test/java/com.learnkafka.libraryeventsproducer&apos;" description="Copy packages" destination="=library-events-producer/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;com.learnkafka.libraryeventsproducer" flags="589830" fragments="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1638873818312" version="1.0"/>
+</session>

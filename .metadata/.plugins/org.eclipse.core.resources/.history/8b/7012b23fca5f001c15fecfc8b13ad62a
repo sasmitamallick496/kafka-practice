@@ -1,0 +1,5 @@
+package com.learnkafka;
+
+public class LibraryEventsConsumerIntegrationTest {
+
+}

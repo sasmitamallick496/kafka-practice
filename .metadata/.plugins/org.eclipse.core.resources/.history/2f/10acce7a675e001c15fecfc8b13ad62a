@@ -1,0 +1,44 @@
+package com.learnkafka.producer;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.kafka.core.KafkaTemplate;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learnkafka.domain.Book;
+import com.learnkafka.domain.LibraryEvent;
+
+@ExtendWith(MockitoExtension.class)
+public class LibraryEventProducerTest {
+	
+	@InjectMocks
+	LibraryEventProducer eventProducer;
+	
+	@Mock
+	KafkaTemplate<Integer, String> kafkatemplate;
+	
+	@Spy
+	ObjectMapper objectMapper;;
+	
+	@Test
+	public void sendLibraryEvent_Approach2_failure() throws JsonProcessingException {
+		
+		Book book  = Book.builder()
+				.bookId(123)
+				.bookAuthor("Sasmita")
+				.bookName("SpringbootwithKafka")
+				.build();
+		LibraryEvent libraryEvent  = LibraryEvent.builder()
+								.libraryEventId(null)
+								.book(book)
+								.build();
+		
+		eventProducer.sendLibraryEvent_Approach2(libraryEvent);
+	}
+
+}

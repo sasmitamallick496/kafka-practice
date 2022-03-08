@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.learnkafka.libraryeventsproducer&apos; to &apos;com.learnkafka&apos;&#x0D;&#x0A;- Original project: &apos;library-events-producer&apos;&#x0D;&#x0A;- Original element: &apos;library-events-producer/src/main/java/com.learnkafka.libraryeventsproducer&apos;&#x0D;&#x0A;- Renamed element: &apos;library-events-producer/src/main/java/com.learnkafka&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.learnkafka.libraryeventsproducer&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.learnkafka.libraryeventsproducer" name="com.learnkafka" qualified="false" references="true" stamp="1630482349646" textual="false" version="1.0"/>
+</session>

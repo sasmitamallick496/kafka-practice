@@ -1,0 +1,53 @@
+package com.learnkafka.producer;
+
+import static org.hamcrest.CoreMatchers.isA;
+import static org.mockito.Mockito.when;
+
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.util.concurrent.SettableListenableFuture;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learnkafka.domain.Book;
+import com.learnkafka.domain.LibraryEvent;
+
+@ExtendWith(MockitoExtension.class)
+public class LibraryEventProducerTest {
+	
+	@InjectMocks
+	LibraryEventProducer eventProducer;
+	
+	@Mock
+	KafkaTemplate<Integer, String> kafkatemplate;
+	
+	@Spy
+	ObjectMapper objectMapper;;
+	
+	@Test
+	public void sendLibraryEvent_Approach2_failure() throws JsonProcessingException {
+		
+		Book book  = Book.builder()
+				.bookId(123)
+				.bookAuthor("Sasmita")
+				.bookName("SpringbootwithKafka")
+				.build();
+		LibraryEvent libraryEvent  = LibraryEvent.builder()
+								.libraryEventId(null)
+								.book(book)
+								.build();
+		SettableListenableFuture future = new SettableListenableFuture();
+		future.setException(new RuntimeException("Exception calling Kafka"));
+		
+		when(kafkatemplate.send(new ProducerRecord<Integer, String>("", 1, ""))).thenReturn(future);
+		
+		eventProducer.sendLibraryEvent_Approach2(libraryEvent);
+	}
+
+}

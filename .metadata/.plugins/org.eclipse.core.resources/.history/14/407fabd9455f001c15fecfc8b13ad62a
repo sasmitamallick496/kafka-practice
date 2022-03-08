@@ -1,0 +1,5 @@
+package com.learnkafka.repository;
+
+public class LibraryEventRepository {
+
+}
